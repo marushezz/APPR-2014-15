@@ -6,9 +6,11 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2014/15.
 
 ## Tematika
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal. Tukaj boste
-napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
+Tema projekta je analiza regionalne bruto dodane vrednosti v osnovnih cenah po letu,standardni klasifikaciji dejavnosti in regijah. Projekt bo v tabeli vseboval posamezne regije(imenska spremenljivka),dejavnosti(imenska spremenljivka),strukturo po regijah in strukturo po dejavnostih (urejenostni spremenljivki) in dodane vrednosti po regijah in dejavnostih(številski spremenljivki.
 
+Moj cilj je ugotoviti katera dejavnost v posamezni regiji prinaša največjo dodano vrednost in v kateri regiji je posamezna dejavnost v ospredju.
+
+Podatke za projekt sem dobila na spletni strani Statističnega urada Republike Slovenije (http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0309202S&ti=Regionalna+bruto+dodana+vrednost+po+dejavnostih+v+osnovnih+cenah%2C+teko%E8e+cene%2C+Slovenija%2C+letno&path=../Database/Ekonomsko/03_nacionalni_racuni/30_03092_regionalni_).
 ## Program
 
 Glavni program se nahaja v datoteki `projekt.r`. Ko ga poženemo, se izvedejo
