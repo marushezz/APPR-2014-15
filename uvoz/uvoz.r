@@ -21,18 +21,22 @@
 #Funkcija, ki uvozi podatke iz datoteke druzine.csv
 uvoziSLO <- function() {
   return(read.table("podatki/BRUTOSLO.csv", sep = ";", as.is = TRUE,
-                  
-                   
-                    col.names = c("Leto", "", "Dejavnosti", "SLOVENIJA", "Zahodna Slovenija", "Obalno-kraška", "Goriška", "Gorenjska", "Osrednjeslovenska",	"Vzhodna Slovenija", "Notranjsko-kraška", "Jugovzhodna Slovenija", "Spodnjeposavska", "Zasavska",	"Savinjska", "Koroška", "Podravska",	"Pomurska"
-),                  
-                   
-                   
+                    
+                    
+                    col.names = c("Leto", "", "Dejavnosti", "SLOVENIJA", "Zahodna Slovenija", "Obalno-kraška", "Goriška", "Gorenjska", "Osrednjeslovenska",  "Vzhodna Slovenija", "Notranjsko-kraška", "Jugovzhodna Slovenija", "Spodnjeposavska", "Zasavska",	"Savinjska", "Koroška", "Podravska",	"Pomurska"
+                    ),                  
+                    
+                    
                     fileEncoding = "Windows-1250"))
 }
+
 
 #Zapišimo podatke v razpredelnico druzine.
 cat("Uvažam podatke o BRUTOSLO...\n")
 BRUTOSLO <- uvoziSLO()
+
+
+pdf("slike/graf.pdf")
 
 
 slices <- c(2.7, 25.2, 20.8, 5.9, 20.4, 4.3, 4.5, 7.5, 9.1, 17.8, 2.7)
@@ -48,5 +52,11 @@ lbls <- paste(lbls, pct) # add percents to labels
 lbls <- paste(lbls,"%",sep="") # ad % to labels 
 pie(slices,labels = lbls, col=rainbow(length(lbls)),
     main="Struktura po dejavnostih v Sloveniji leta 2012")
+
+
+dev.off()
+
+
+
 
 
