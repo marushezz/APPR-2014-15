@@ -20,43 +20,45 @@
 
 #Funkcija, ki uvozi podatke iz datoteke druzine.csv
 uvoziSLO <- function() {
-  return(read.table("podatki/BRUTOSLO.csv", sep = ";", as.is = TRUE,
+  return(read.table("podatki/brutoslo.csv", sep = ";", as.is = TRUE,
                     
                     
                     col.names = c("Leto", "", "Dejavnosti", "SLOVENIJA", "Zahodna Slovenija", "Obalno-kraška", "Goriška", "Gorenjska", "Osrednjeslovenska",  "Vzhodna Slovenija", "Notranjsko-kraška", "Jugovzhodna Slovenija", "Spodnjeposavska", "Zasavska",	"Savinjska", "Koroška", "Podravska",	"Pomurska"
                     ),                  
                     
-                    
+                  
                     fileEncoding = "Windows-1250"))
 }
 
 
 #Zapišimo podatke v razpredelnico druzine.
-cat("Uvažam podatke o BRUTOSLO...\n")
+cat("Uvažam podatke o brutoslo...\n")
 BRUTOSLO <- uvoziSLO()
 
 
-pdf("slike/graf.pdf")
+#tortni graf
 
-
-slices <- c(2.7, 25.2, 20.8, 5.9, 20.4, 4.3, 4.5, 7.5, 9.1, 17.8, 2.7)
-lbls <- c("A Kmetijstvo, gozdarstvo in ribištvo",
-          "BCDE Predelovalne dejavnosti", "rudarstvo in druga industrija", "Predelovalne dejavnosti",
-          "F Gradbeništvo", "GHI Trgovina", "gostinstvo", "promet", "J Informacijske in komunikacijske dejavnosti",
-          "K Finančne in zavarovalniške dejavnosti", "L Poslovanje z nepremičninami",
-          "MN Strokovne, znanstvene, tehnične in druge posl. dejavnosti",
-          "OPQ Uprava in obramba, obv. soc. varnost, izob., zdravstvo",
-          "RSTU Druge dejavnosti")
+pdf("slike/graf.pdf", paper="a4r")
+slices <- BRUTOSLO[(458:468), "SLOVENIJA"]
+lbls <- BRUTOSLO[(458:468), "Dejavnosti"]
 pct <- round(slices/sum(slices)*100)
-lbls <- paste(lbls, pct) # add percents to labels 
-lbls <- paste(lbls,"%",sep="") # ad % to labels 
+lbls <- paste(lbls, pct) 
+lbls <- paste(lbls,"%",sep="") # dodajanje % 
 pie(slices,labels = lbls, col=rainbow(length(lbls)),
     main="Struktura po dejavnostih v Sloveniji leta 2012")
-
 
 dev.off()
 
 
-
-
+#tabela xml
+source("lib/xml.r")
+dodanavrednost <- uvozi.dejavnosti()
+cat("Uvažam podatke bruto dodane vrednosti za Slovenijo leta 2012 in 2013")
+ 
+#stolpični graf
+dod <- dodanavrednost[(2:20), "X2012"]
+dodan <- dodanavrednost[(2:20), "X2013"]
+counts <- table(dod,dodan)
+barplot(counts, xlab="leto", ylab="dodana vrednost", main="Primerjava bruto dodane vrednosti v Sloveniji", col=c("blue","red"),
+        width=2, beside=TRUE, legend = dodanavrednost[(2:20), "row.names"])
 
