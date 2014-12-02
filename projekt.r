@@ -1,11 +1,12 @@
  # 2. faza: Obdelava, uvoz in čiščenje podatkov
+
 source("uvoz/uvoz.r")
 
 source("lib/xml.r")
 
 source("porocilo/porocilo.tex")
 
-source("slike/graf.pdf"")
+
 
 
 

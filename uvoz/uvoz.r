@@ -53,13 +53,17 @@ dev.off()
 #tabela xml
 source("lib/xml.r")
 dodanavrednost <- uvozi.dejavnosti()
-cat("Uvažam podatke bruto dodane vrednosti za Slovenijo leta 2012 in 2013")
+cat("Podatki bruto dodane vrednosti za Slovenijo leta 2012 in 2013")
  
 #stolpični graf
+pdf("slike/plot.pdf", paper="a4r")
 dod <- dodanavrednost[(2:20), "X2012"]
 dodan <- dodanavrednost[(2:20), "X2013"]
-counts <- table(dod,dodan)
-barplot(counts, xlab="leto", ylab="dodana vrednost", main="Primerjava bruto dodane vrednosti v Sloveniji", col=c("blue","red"),
-        width=2, beside=TRUE, legend = dodanavrednost[(2:20), "row.names"])
+counts <- matrix(c(dod, dodan), nrow=2, byrow=TRUE)
+barplot(counts, xlab="dejavnost", ylab="dodana vrednost", main="Primerjava bruto dodane vrednosti v Sloveniji", col=c("blue","red"),
+        width=2, beside=TRUE, legend = 2012:2013, names.arg = substr(row.names(dodanavrednost)[2:20], 1, 1))
+dev.off()
+
+
 
 
