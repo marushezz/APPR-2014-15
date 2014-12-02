@@ -11,6 +11,7 @@ source("porocilo/porocilo.tex")
 
 
 
+
 # 3. faza: Analiza in vizualizacija podatkov
 #source("vizualizacija/vizualizacija.r")
 

@@ -32,6 +32,7 @@ uvoziSLO <- function() {
 
 
 
+
 #Zapišimo podatke v razpredelnico druzine.
 cat("Uvažam podatke o brutoslo...\n")
 BRUTOSLO <- uvoziSLO()
