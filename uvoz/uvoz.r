@@ -62,3 +62,4 @@ counts <- table(dod,dodan)
 barplot(counts, xlab="leto", ylab="dodana vrednost", main="Primerjava bruto dodane vrednosti v Sloveniji", col=c("blue","red"),
         width=2, beside=TRUE, legend = dodanavrednost[(2:20), "row.names"])
 
+
