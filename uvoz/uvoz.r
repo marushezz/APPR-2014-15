@@ -4,7 +4,8 @@
 # uvoziDruzine <- function() {
 #   return(read.table("podatki/druzine.csv", sep = ";", as.is = TRUE,
 #                       row.names = 1,
-#                       col.names = c("obcina", "en", "dva", "tri", "stiri"),
+#               
+col.names = c("obcina", "en", "dva", "tri", "stiri"),
 #                       fileEncoding = "Windows-1250"))
 # }
 # 
