@@ -2,9 +2,7 @@
 
 source("uvoz/uvoz.r")
 
-source("lib/xml.r")
 
-source("porocilo/porocilo.tex")
 
 
 
@@ -20,3 +18,4 @@ source("porocilo/porocilo.tex")
 #source("analiza/analiza.r")
 
 cat("Končano.\n")
+

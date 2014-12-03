@@ -1,9 +1,9 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt, a4paper]{article}
 
 \usepackage[slovene]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
-
+\usepackage{url}
 
 \pagestyle{plain}
 
@@ -17,52 +17,82 @@ Analiza podatkov s programom R}
 \section{Analiza regionalne bruto dodane vrednosti v osnovnih cenah po letu,standardni klasifikaciji dejavnosti in regijah} 
 
 V projektu bom analizirala podatke o bruto dodani vrednosti po dejavnostih v Sloveniji v letih 2000-2013. Podatke sem pridobila iz Statističnega urada Republike Slovenije:
--http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0309202S&ti=Regionalna+bruto+dodana+vrednost+po+dejavnostih+v+osnovnih+cenah%2C+teko%E8e+cene%2C+Slovenija%2C+letno&path=../Database/Ekonomsko/03_nacionalni_racuni/30_03092_regionalni_rac/&lang=  
--http://www.stat.si/novica_prikazi.aspx?id=6254
+begin{itemize}
+\item\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0309202S&ti=Regionalna+bruto+dodana+vrednost+po+dejavnostih+v+osnovnih+cenah%2C+teko%E8e+cene%2C+Slovenija%2C+letno&path=../Database/Ekonomsko/03_nacionalni_racuni/30_03092_regionalni_rac/&lang= } 
+\item\url{http://www.stat.si/novica_prikazi.aspx?id=6254}
+
+\end{itemize}
 
 \section{Obdelava, uvoz in čiščenje podatkov}
 
-Uvozila sem podatke v obliki csv in spletne strani http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0309202S&ti=Regionalna+bruto+dodana+vrednost+po+dejavnostih+v+osnovnih+cenah%2C+teko%E8e+cene%2C+Slovenija%2C+letno&path=../Database/Ekonomsko/03_nacionalni_racuni/30_03092_regionalni_rac/&lang= 
-in podatke v obliki html iz spletne strani http://www.stat.si/novica_prikazi.aspx?id=6254.
+Uvozila sem podatke v obliki csv in spletne strani \url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0309202S&ti=Regionalna+bruto+dodana+vrednost+po+dejavnostih+v+osnovnih+cenah%2C+teko%E8e+cene%2C+Slovenija%2C+letno&path=../Database/Ekonomsko/03_nacionalni_racuni/30_03092_regionalni_rac/&lang= } 
+in podatke v obliki html iz spletne strani 
+\url{http://www.stat.si/novica_prikazi.aspx?id=6254n}.
 
 Po uvozu podatkov sem oblikovala tortni graf, ki predstavlja deleže dodanih vrednosti v Sloveniji po dejavnostih v letu 2012.
 
-\includegraphics{../slike/graf.pdf}
+\textbf{Legenda za tortni graf:}
+\begin{table}[h]
+\begin{tabular}{lll}
+A & Kmetijstvo, gozdarstvo in ribištvo \\
+BCDE & Predelovalne dejavnosti, rudarstvo in druga industrija \\
+C & Predelovalne dejavnosti \\
+F & Gradbeništvo \\
+GHI & Trgovina, gostinstvo, promet \\
+J & Informacijske in komunikacijske dejavnosti\\
+K & Finančne in zavarovalniške dejavnosti\\
+L & Poslovanje z nepremičninami \\
+MN & Strokovne, znanstvene, tehnične in druge posl. dejavnosti \\
+OPQ & Uprava in obramba, obv. soc. varnost, izob., zdravstvo \\
+RSTU & Druge dejavnosti
+\end{tabular)
+\end{table}
+
+\begin{center}
+\includegraphics[width=\textwidth]{../slike/graf.pdf}
+\end{center}
 
 Za primerjavo bruto dodane vrednosti v Sloveniji v letih 2012 in 2013 sem naredila še stolpični graf tako da je za vsako dejavnost skupaj dodana vrednost v letu 2012 (v  modri barvi) in zraven dodana vrednost v letu 2013 (v rdeči barvi). 
 
-Legenda kratic na x-osi v stolpičnem grafu:
-A Kmetijstvo in lov,gozdarstvo,ribištvo  
-B Rudarstvo	
-C Predelovalne dejavnosti	
-D Oskrba z el.energijo,plinom in paro	
-E Oskr.z vodo;rav.z odpl.,odp.;san.okolja	
-F  Gradbeništvo	
-G Trgovina;vzdrž.in popravila mot.vozil	
-H  Promet in skladiščenje	
-I  Gostinstvo	
-J Informacijske in komunikacijske dej.	
-K Finančne in zavarovalniške dej.	
-L Poslovanje z nepremičninami	
-M Strokovne,znanstvene in tehnične dej.	
-N Druge raznovrstne poslovne dej.	
-O Javna uprava in obramba;obv.soc.varnost	
-P  Izobraževanje	
-Q  Zdravstvo in socialno varstvo	
-R Kulturne,razvedrilne in rekreac.dej.	
-S  Druge dejavnosti
+\textbf{Legenda kratic na x-osi v stolpičnem grafu:}
+\begin{table}[h]
+\begin{tabular}{lll}
+A  & Kmetijstvo in lov,gozdarstvo,ribištvo \\
+B & Rudarstvo	\\
+C & Predelovalne dejavnosti	\\
+D & Oskrba z el.energijo,plinom in paro	\\
+E & Oskr.z vodo;rav.z odpl.,odp.;san.okolja	\\
+F & Gradbeništvo	\\
+G & Trgovina;vzdrž.in popravila mot.vozil	\\
+H & Promet in skladiščenje	\\
+I & Gostinstvo	\\
+J & Informacijske in komunikacijske dej.\\	
+K & Finančne in zavarovalniške dej.	\\
+L & Poslovanje z nepremičninami	\\
+M & Strokovne,znanstvene in tehnične dej.	\\
+N & Druge raznovrstne poslovne dej.	\\
+O & Javna uprava in obramba;obv.soc.varnost \\
+P & Izobraževanje	\\
+Q & Zdravstvo in socialno varstvo	\\
+R & Kulturne,razvedrilne in rekreac.dej.\\	
+S & Druge dejavnosti
+\end{tabular}
+\end{table}
 
 
+\begin{center}
 
-\includegraphics{../slike/plot.pdf}
+\includegraphics[width=\textwidth]{../slike/plot.pdf}
+
+\end{center}
 
 
 \section{Analiza in vizualizacija podatkov}
 
-\includegraphics{../slike/povprecna_druzina.pdf}
+
 
 \section{Napredna analiza podatkov}
 
-\includegraphics{../slike/naselja.pdf}
+
 
 \end{document}

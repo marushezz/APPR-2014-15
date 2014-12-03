@@ -36,14 +36,14 @@ uvoziSLO <- function() {
 
 #Zapišimo podatke v razpredelnico druzine.
 cat("Uvažam podatke o brutoslo...\n")
-BRUTOSLO <- uvoziSLO()
+brutoslo <- uvoziSLO()
 
 
 #tortni graf
 
-pdf("slike/graf.pdf", paper="a4r")
-slices <- BRUTOSLO[(458:468), "SLOVENIJA"]
-lbls <- BRUTOSLO[(458:468), "Dejavnosti"]
+pdf("slike/graf.pdf")
+slices <- brutoslo[(458:468), "SLOVENIJA"]
+lbls <- gsub("[^A-Z]*([A-Z]+).*", "\\1", brutoslo[(458:468), "Dejavnosti"])
 pct <- round(slices/sum(slices)*100)
 lbls <- paste(lbls, pct) 
 lbls <- paste(lbls,"%",sep="") # dodajanje % 
@@ -60,7 +60,7 @@ dodanavrednost <- uvozi.dejavnosti()
 cat("Podatki bruto dodane vrednosti za Slovenijo leta 2012 in 2013")
  
 #stolpični graf
-pdf("slike/plot.pdf", paper="a4r")
+pdf("slike/plot.pdf")
 dod <- dodanavrednost[(2:20), "X2012"]
 dodan <- dodanavrednost[(2:20), "X2013"]
 counts <- matrix(c(dod, dodan), nrow=2, byrow=TRUE)
