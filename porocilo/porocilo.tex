@@ -1,9 +1,9 @@
-\documentclass[11pt, a4paper]{article}
-
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
 \usepackage[slovene]{babel}
-\usepackage[utf8x]{inputenc}
-\usepackage{graphicx}
-\usepackage{url}
+\usepackage{eurosym}
 
 \pagestyle{plain}
 
@@ -18,8 +18,8 @@ Analiza podatkov s programom R}
 
 V projektu bom analizirala podatke o bruto dodani vrednosti po dejavnostih v Sloveniji v letih 2000-2013. Podatke sem pridobila iz Statističnega urada Republike Slovenije:
 begin{itemize}
-\item\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0309202S&ti=Regionalna+bruto+dodana+vrednost+po+dejavnostih+v+osnovnih+cenah%2C+teko%E8e+cene%2C+Slovenija%2C+letno&path=../Database/Ekonomsko/03_nacionalni_racuni/30_03092_regionalni_rac/&lang= } 
-\item\url{http://www.stat.si/novica_prikazi.aspx?id=6254}
+\item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0309202S&ti=Regionalna+bruto+dodana+vrednost+po+dejavnostih+v+osnovnih+cenah%2C+teko%E8e+cene%2C+Slovenija%2C+letno&path=../Database/Ekonomsko/03_nacionalni_racuni/30_03092_regionalni_rac/&lang= }} 
+\item{\url{http://www.stat.si/novica_prikazi.aspx?id=6254}}
 
 \end{itemize}
 
@@ -58,7 +58,7 @@ Za primerjavo bruto dodane vrednosti v Sloveniji v letih 2012 in 2013 sem naredi
 \begin{table}[h]
 \begin{tabular}{lll}
 A  & Kmetijstvo in lov,gozdarstvo,ribištvo \\
-B & Rudarstvo	\\
+B & Rudarstvo  \\
 C & Predelovalne dejavnosti	\\
 D & Oskrba z el.energijo,plinom in paro	\\
 E & Oskr.z vodo;rav.z odpl.,odp.;san.okolja	\\
