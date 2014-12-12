@@ -40,7 +40,6 @@ bruto <- uvoziSLO()
 
 
 
-
 #tortni graf
 
 pdf("slike/graf.pdf")
