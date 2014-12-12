@@ -39,7 +39,6 @@ cat("Uvažam podatke o Brutoslo-...\n")
 bruto <- uvoziSLO()
 
 
-
 #tortni graf
 
 pdf("slike/graf.pdf")
