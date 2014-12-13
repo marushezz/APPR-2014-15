@@ -21,11 +21,10 @@
 
 #Funkcija, ki uvozi podatke iz datoteke druzine.csv
 uvoziSLO <- function() {
-  return(read.table("podatki/bruto.csv", sep = ";", as.is = TRUE,
+  return(read.table("podatki/brutoslo.csv", sep = ";", as.is = TRUE,
                     
-                    
-                    col.names = c("Leto", "", "Dejavnosti", "SLOVENIJA", "Zahodna Slovenija", "Obalno-kraška", "Goriška", "Gorenjska", "Osrednjeslovenska",  "Vzhodna Slovenija", "Notranjsko-kraška", "Jugovzhodna Slovenija", "Spodnjeposavska", "Zasavska",	"Savinjska", "Koroška", "Podravska",	"Pomurska"
-                    ),                  
+                  
+                    col.names = c("Leto", "", "Dejavnosti", "SLOVENIJA", "Zahodna Slovenija", "Obalno-kraška", "Goriška", "Gorenjska", "Osrednjeslovenska",  "Vzhodna Slovenija", "Notranjsko-kraška", "Jugovzhodna Slovenija", "Spodnjeposavska", "Zasavska",	"Savinjska", "Koroška", "Podravska",	"Pomurska"),                  
                     
                   
                     fileEncoding = "Windows-1250"))
@@ -35,8 +34,8 @@ uvoziSLO <- function() {
 
 
 #Zapišimo podatke v razpredelnico druzine.
-cat("Uvažam podatke o bruto...\n")
-bruto <- uvoziSLO()
+cat("Uvažam podatke o brutoslo...\n")
+brutoslo <- uvoziSLO()
 
 
  
@@ -44,8 +43,8 @@ bruto <- uvoziSLO()
 #tortni graf
 
 pdf("slike/graf.pdf")
-slices <- bruto[(458:468), "SLOVENIJA"]
-lbls <- gsub("[^A-Z]*([A-Z]+).*", "\\1", bruto[(458:468), "Dejavnosti"])
+slices <- brutoslo[(458:468), "SLOVENIJA"]
+lbls <- gsub("[^A-Z]*([A-Z]+).*", "\\1", brutoslo[(458:468), "Dejavnosti"])
 pct <- round(slices/sum(slices)*100)
 lbls <- paste(lbls, pct) 
 lbls <- paste(lbls,"%",sep="") # dodajanje % 
