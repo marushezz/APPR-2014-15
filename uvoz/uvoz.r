@@ -34,13 +34,12 @@ uvoziSLO <- function() {
 
 
 
-
 #Zapišimo podatke v razpredelnico druzine.
-cat("Uvažam podatke o Brutoslo-...\n")
+cat("Uvažam podatke o bruto...\n")
 bruto <- uvoziSLO()
 
 
-
+ 
 
 #tortni graf
 
@@ -54,7 +53,6 @@ pie(slices,labels = lbls, col=rainbow(length(lbls)),
     main="Struktura po dejavnostih v Sloveniji leta 2012")
 
 dev.off()
-
 
 
 #tabela xml
