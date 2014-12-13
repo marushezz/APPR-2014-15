@@ -21,7 +21,7 @@
 
 #Funkcija, ki uvozi podatke iz datoteke druzine.csv
 uvoziSLO <- function() {
-  return(read.table("podatki/brutoslo.csv", sep = ";", as.is = TRUE,
+  return(read.table("podatki/DODANAVRED.csv", sep = ";", as.is = TRUE,
                     
                   
                     col.names = c("Leto", "", "Dejavnosti", "SLOVENIJA", "Zahodna Slovenija", "Obalno-kraška", "Goriška", "Gorenjska", "Osrednjeslovenska",  "Vzhodna Slovenija", "Notranjsko-kraška", "Jugovzhodna Slovenija", "Spodnjeposavska", "Zasavska",	"Savinjska", "Koroška", "Podravska",	"Pomurska"),                  
@@ -34,8 +34,8 @@ uvoziSLO <- function() {
 
 
 #Zapišimo podatke v razpredelnico druzine.
-cat("Uvažam podatke o brutoslo...\n")
-brutoslo <- uvoziSLO()
+cat("Uvažam podatke o DODANAVRED...\n")
+DODANAVRED <- uvoziSLO()
 
 
  
@@ -43,9 +43,9 @@ brutoslo <- uvoziSLO()
 #tortni graf
 
 pdf("slike/graf.pdf")
-slices <- brutoslo[(458:468), "SLOVENIJA"]
-lbls <- gsub("[^A-Z]*([A-Z]+).*", "\\1", brutoslo[(458:468), "Dejavnosti"])
-pct <- round(slices/sum(slices)*100)
+slices <- DODANAVRED[(458:468), "SLOVENIJA"]
+lbls <- gsub("[^A-Z]*([A-Z]+).*", "\\1", DODANAVRED[(458:468), "Dejavnosti"])
+pct <- round(slices/(sum(slices)*100))
 lbls <- paste(lbls, pct) 
 lbls <- paste(lbls,"%",sep="") # dodajanje % 
 pie(slices,labels = lbls, col=rainbow(length(lbls)),
