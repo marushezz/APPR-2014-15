@@ -54,6 +54,8 @@ pie(slices,labels = lbls, col=rainbow(length(lbls)),
 dev.off()
 
 
+
+
 #tabela xml
 source("lib/xml.r")
 dodanavrednost <- uvozi.dejavnosti()
