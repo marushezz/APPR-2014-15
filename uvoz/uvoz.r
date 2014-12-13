@@ -45,7 +45,7 @@ DODANAVRED <- uvoziSLO()
 pdf("slike/graf.pdf")
 slices <- DODANAVRED[(458:468), "SLOVENIJA"]
 lbls <- gsub("[^A-Z]*([A-Z]+).*", "\\1", DODANAVRED[(458:468), "Dejavnosti"])
-pct <- round(slices/(sum(slices)*100))
+pct <- round(slices/sum(slices)*100)
 lbls <- paste(lbls, pct) 
 lbls <- paste(lbls,"%",sep="") # dodajanje % 
 pie(slices,labels = lbls, col=rainbow(length(lbls)),
