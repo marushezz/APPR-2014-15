@@ -25,8 +25,6 @@ preuredi <- function(podatki, zemljevid) {
   return(out)
 }
 
-#Preuredimo podatke, da jih bomo lahko izrisali na zemljevid.
-SLOregije <- preuredi(DODANAVRED[5:18], slo)
 
 # Izračunamo povprečno velikost družine.
 #dodanavrednost$X2013 <- apply(DODANAVRED["445", (5:18)], 1, function(x) (dodan/sum(dodan)*100)
@@ -38,11 +36,12 @@ norm.2012 <- (DODANAVRED["445", (5:18)]-min.povprecje)/(max.povprecje-min.povpre
 cat("Rišem zemljevid...\n")
 pdf("slike/zemljevid.pdf", width=6, height=4)
 
-n = 100
-barve =topo.colors(n)[unlist(1+(n-1)*norm.2012)]
+#n = 100
+#barve =terrain.colors(n)[unlist(1+(n-1)*norm.2012)]
 plot(slo, col = barve)
 text(coordinates(slo),labels=as.character(slo$NAME_1),cex=0.3)
-title("Povprecna bruto dodana vrednost v letu 2012")
+barve=rainbow(12)
+ 
 
 
 dev.off()
