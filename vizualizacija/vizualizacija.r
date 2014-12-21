@@ -16,33 +16,45 @@ preuredi <- function(podatki, zemljevid) {
   names(M) <- names(podatki)
   row.names(M) <- nove.slo[manjkajo]
   podatki <- rbind(podatki, M)
-  out <- data.frame(podatki[order(rownames(podatki)), ])[rank(levels(zemljevid$NAME_1)[rank(zemljevid$NAME_1)]), ]
+  ord <- rank(levels(zemljevid$NAME_1)[rank(zemljevid$NAME_1)])
+  out <- data.frame(podatki[order(rownames(podatki)), ])[ord, ]
   if (ncol(podatki) == 1) {
     out <- data.frame(out)
     names(out) <- names(podatki)
-    rownames(out) <- rownames(podatki)
+    rownames(out) <- rownames(podatki)[ord]
   }
   return(out)
 }
 
 
+# Narišimo zemljevid v PDF.
+cat("Rišem zemljevid Slovenije...\n")
+pdf("slike/Slovenija.pdf", width=6, height=4)
+
+#Preuredimo podatke
+povprecje <- preuredi(apply(DODANAVRED[445, c(6:9, 11:18)], 1, c), slo)
+
+
 # Izračunamo povprečno velikost družine.
 #dodanavrednost$X2013 <- apply(DODANAVRED["445", (5:18)], 1, function(x) (dodan/sum(dodan)*100)
-min.povprecje <- min(DODANAVRED["445", (5:18)], na.rm=TRUE)
-max.povprecje <- max(DODANAVRED["445", (5:18)], na.rm=TRUE)
-povprecje <- DODANAVRED["445", (5:18)]
-norm.2012 <- (DODANAVRED["445", (5:18)]-min.povprecje)/(max.povprecje-min.povprecje)
-# Narišimo zemljevid v PDF.
-cat("Rišem zemljevid...\n")
-pdf("slike/zemljevid.pdf", width=6, height=4)
 
-#n = 100
-#barve =terrain.colors(n)[unlist(1+(n-1)*norm.2012)]
-plot(slo, col = barve)
+min.povprecje <- min(povprecje, na.rm=TRUE)
+max.povprecje <- max(povprecje, na.rm=TRUE)
+norm.2012 <- (povprecje-min.povprecje)/(max.povprecje-min.povprecje)
+
+n = 100
+barve =rgb(1, 1, (n:1)/n)[unlist(1+(n-1)*norm.2012)]
+plot(slo, col = barve,bg="lightgreen")
 text(coordinates(slo),labels=as.character(slo$NAME_1),cex=0.3)
-barve=rainbow(12)
- 
+title("Povprečna bruto dodana vrednost leta 2012 po regijah")
+LJUBLJANA <- slo$VARNAME_1 == "Ljubljana"
+points(coordinates(slo), pch = ifelse(LJUBLJANA, 18, 0), cex = ifelse(LJUBLJANA, 0.5 ,0), col = ifelse(LJUBLJANA, "red", "white"))
+
 
 
 dev.off()
+
+
+
+
 
