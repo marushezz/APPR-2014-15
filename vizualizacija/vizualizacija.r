@@ -50,7 +50,10 @@ title("Povprečna bruto dodana vrednost leta 2012 po regijah")
 LJUBLJANA <- slo$VARNAME_1 == "Ljubljana"
 points(coordinates(slo), pch = ifelse(LJUBLJANA, 18, 0), cex = ifelse(LJUBLJANA, 0.5 ,0), col = ifelse(LJUBLJANA, "red", "white"))
 
-
+slo$dv2012 <- povprecje[c(1:12),]
+print(spplot(slo, "dv2012" ,col.regions  = topo.colors(50),
+             main = "Povprečna bruto dodana vrednost leta 2012 po regijah",
+             sp.layout = list(list("sp.text", coordinates(slo),slo$NAME_1, cex = 0.5))))
 
 dev.off()
 
