@@ -11,7 +11,7 @@ Tema projekta je analiza regionalne bruto dodane vrednosti v osnovnih cenah po l
 Moj cilj je ugotoviti katera dejavnost v posamezni regiji prinaša največjo dodano vrednost in v kateri regiji je posamezna dejavnost v ospredju.
 
 Podatke za projekt sem dobila na spletni strani Statističnega urada Republike Slovenije (http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0309202S&ti=Regionalna+bruto+dodana+vrednost+po+dejavnostih+v+osnovnih+cenah%2C+teko%E8e+cene%2C+Slovenija%2C+letno&path=../Database/Ekonomsko/03_nacionalni_racuni/30_03092_regionalni_rac/&lang=2
-).
+in http://www.stat.si/novica_prikazi.aspx?id=6254 ).
 ## Program
 
 Glavni program se nahaja v datoteki `projekt.r`. Ko ga poženemo, se izvedejo

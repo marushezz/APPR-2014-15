@@ -71,11 +71,17 @@ colnames(matrika) <- gsub("\n", " ", stripByPath(vrstice[[1]], ".//td"))
   
   
     
-return(data.frame(apply(gsub("\\.", "", matrika[,2:3]),
-                       2, as.numeric), row.names=matrika[,1]))
+dejavnostidata=data.frame(apply(gsub("\\.", "", matrika[,2:3]),
+                       2, as.numeric), row.names=matrika[,1])
 
-    
+return(dejavnostidata)    
 }
+
+
+
+
+
+
 
 
 

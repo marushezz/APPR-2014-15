@@ -1,14 +1,12 @@
-# 2. faza: Obdelava, uvoz in čiščenje podatkov
-source("uvoz/uvoz.r")
+ # 2. faza: Obdelava, uvoz in čiščenje podatkov
 
-source("lib/xml.r")
-source("porocilo/porocilo.tex")
-source("slike/graf.pdf"")
+source("uvoz/uvoz.r")
 
 # 3. faza: Analiza in vizualizacija podatkov
 source("vizualizacija/vizualizacija.r")
 
 # 4. faza: Napredna analiza podatkov
-source("analiza/analiza.r")
+#source("analiza/analiza.r")
 
 cat("Končano.\n")
+
