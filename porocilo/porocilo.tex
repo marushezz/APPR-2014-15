@@ -1,29 +1,120 @@
-\documentclass[11pt,a4paper]{article}
-
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
 \usepackage[slovene]{babel}
-\usepackage[utf8x]{inputenc}
+\usepackage{eurosym}
 \usepackage{graphicx}
+\usepackage{url}
+
 
 \pagestyle{plain}
 
+
 \begin{document}
+
 \title{Poročilo pri predmetu \\
 Analiza podatkov s programom R}
-\author{Študent FMF}
-\maketitle
+\author{Maruša Valant}
+\maketitle{Analiza regionalne bruto dodane vrednosti v osnovnih cenah po letu,standardni klasifikaciji dejavnosti in regijah} 
 
-\section{Analiza regionalne bruto dodane vrednosti v osnovnih cenah po letu,standardni klasifikaciji dejavnosti in regijah}
+\section{O projektu}
+
+V projektu bom analizirala podatke o bruto dodani vrednosti po dejavnostih v Sloveniji v letih 2000-2013. Podatke sem pridobila iz Statističnega urada Republike Slovenije:
+
+\begin{itemize}
+\item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0309202S&ti=Regionalna+bruto+dodana+vrednost+po+dejavnostih+v+osnovnih+cenah%2C+teko%E8e+cene%2C+Slovenija%2C+letno&path=../Database/Ekonomsko/03_nacionalni_racuni/30_03092_regionalni_rac/&lang=2}}
+\item{\url{http://www.stat.si/novica_prikazi.aspx?id=6254}}
+
+\end{itemize}
 
 \section{Obdelava, uvoz in čiščenje podatkov}
+
+Uvozila sem podatke v obliki csv in spletne strani
+
+\begin{itemize}
+ \item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=0309202S&ti=Regionalna+bruto+dodana+vrednost+po+dejavnostih+v+osnovnih+cenah%2C+teko%E8e+cene%2C+Slovenija%2C+letno&path=../Database/Ekonomsko/03_nacionalni_racuni/30_03092_regionalni_rac/&lang= }} 
+\end{itemize}
+in podatke v obliki html iz spletne strani 
+\begin{itemize}
+\item{\url{http://www.stat.si/novica_prikazi.aspx?id=6254n}}.
+\end{itemize}
+
+Po uvozu podatkov sem oblikovala tortni graf, ki predstavlja deleže dodanih vrednosti v Sloveniji po dejavnostih v letu 2012.
+\newpage
+\textbf{Legenda za tortni graf:}
+\begin{table}[h]
+\begin{tabular}{lll}
+A & Kmetijstvo, gozdarstvo in ribištvo \\
+BCDE & Predelovalne dejavnosti, rudarstvo in druga industrija \\
+C & Predelovalne dejavnosti \\
+F & Gradbeništvo \\
+GHI & Trgovina, gostinstvo, promet \\
+J & Informacijske in komunikacijske dejavnosti\\
+K & Finančne in zavarovalniške dejavnosti\\
+L & Poslovanje z nepremičninami \\
+MN & Strokovne, znanstvene, tehnične in druge posl. dejavnosti \\
+OPQ & Uprava in obramba, obv. soc. varnost, izob., zdravstvo \\
+RSTU & Druge dejavnosti
+\end{tabular}
+\end{table}
+
+\begin{center}
+\includegraphics[width=\textwidth]{../slike/graf.pdf}
+\end{center}
+
+
+
+
+
+
+Za primerjavo bruto dodane vrednosti v Sloveniji v letih 2012 in 2013 sem naredila še stolpični graf tako da je za vsako dejavnost skupaj dodana vrednost v letu 2012 (v  modri barvi) in zraven dodana vrednost v letu 2013 (v rdeči barvi). 
+\newline
+\textbf{Legenda kratic na x-osi v stolpičnem grafu:}
+\begin{table}[h]
+\begin{tabular}{lll}
+A  & Kmetijstvo in lov,gozdarstvo,ribištvo \\
+B & Rudarstvo  \\
+C & Predelovalne dejavnosti	\\
+D & Oskrba z el.energijo,plinom in paro	\\
+E & Oskr.z vodo;rav.z odpl.,odp.;san.okolja	\\
+F & Gradbeništvo	\\
+G & Trgovina;vzdrž.in popravila mot.vozil	\\
+H & Promet in skladiščenje	\\
+I & Gostinstvo	\\
+J & Informacijske in komunikacijske dej.\\	
+K & Finančne in zavarovalniške dej.	\\
+L & Poslovanje z nepremičninami	\\
+M & Strokovne,znanstvene in tehnične dej.	\\
+N & Druge raznovrstne poslovne dej.	\\
+O & Javna uprava in obramba;obv.soc.varnost \\
+P & Izobraževanje	\\
+Q & Zdravstvo in socialno varstvo	\\
+R & Kulturne,razvedrilne in rekreac.dej.\\	
+S & Druge dejavnosti
+\end{tabular}
+\end{table}
+
+
+\begin{center}
+
+\includegraphics[width=\textwidth]{../slike/plot.pdf}
+
+\end{center}
+
 
 \section{Analiza in vizualizacija podatkov}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of db6481c... združujemo
 
 Za boljšo predstavitev podatkov sem uvozila zemljevid Slovenije. Na njem so označene posamezne regije, glavno mesto Slovenije - Ljuvljana, je označeno z rdečim kvadratom, različne barve regij pa nam povejo kako produktivne so bile posamezne regije leta 2012 ( rumena predstavlja najbolj produktivne, bela pa najmanj produktivne).
 
 \newpage
 \begin{center}
+<<<<<<< HEAD
  \includegraphics[width=\textwidth]{../slike/Slovenija.pdf}
 
 \end{center}
@@ -37,9 +128,16 @@ Iz zemljevida je razvidno, da je leta 2012 največji del bruto dodane vrednosti 
 =======
 \includegraphics{../slike/povprecna_druzina.pdf}
 >>>>>>> db6481ccf92a9100ae48edc8ae14a2c8ee7639a8
+=======
+\includegraphics{../slike/Slovenija.pdf}
+\end{center}
+
+Iz zemljevida je razvidno, da je leta 2012 največji del bruto dodane vrednosti v Sloveniji prispevala Osrednjeslovenska (36.8\%), najmanj pa Zasavska (1.4\%).
+
+>>>>>>> parent of db6481c... združujemo
 
 \section{Napredna analiza podatkov}
 
-\includegraphics{../slike/naselja.pdf}
+
 
 \end{document}

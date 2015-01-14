@@ -2,6 +2,15 @@
 
 source("uvoz/uvoz.r")
 
+
+
+
+
+
+
+
+
+
 # 3. faza: Analiza in vizualizacija podatkov
 source("vizualizacija/vizualizacija.r")
 
