@@ -16,20 +16,20 @@ preuredi <- function(podatki, zemljevid) {
   names(M) <- names(podatki)
   row.names(M) <- nove.slo[manjkajo]
   podatki <- rbind(podatki, M)
-  out <- data.frame(podatki[order(rownames(podatki)), ])[rank(levels(zemljevid$NAME_1)[rank(zemljevid$NAME_1)]), ]
+  ord <- rank(levels(zemljevid$NAME_1)[rank(zemljevid$NAME_1)])
+  out <- data.frame(podatki[order(rownames(podatki)), ])[ord, ]
   if (ncol(podatki) == 1) {
     out <- data.frame(out)
     names(out) <- names(podatki)
-    rownames(out) <- rownames(podatki)
+    rownames(out) <- rownames(podatki)[ord]
   }
   return(out)
 }
 
 
-
 # Narišimo zemljevid v PDF.
 cat("Rišem zemljevid Slovenije...\n")
-pdf("slike/Slovenija.pdf", width=6, height=4)
+pdf("slike/Slovenija.pdf")
 
 #Preuredimo podatke
 povprecje <- preuredi(apply(DODANAVRED[445, c(6:9, 11:18)], 1, c), slo)
@@ -46,18 +46,7 @@ koordinate["Spodnjeposavska",2] <- koordinate["Spodnjeposavska",2]
 
 
 # Izračunamo povprečno vrednost
-
-# Izračunamo povprečno velikost družine.
-
 #dodanavrednost$X2013 <- apply(DODANAVRED["445", (5:18)], 1, function(x) (dodan/sum(dodan)*100)
-min.povprecje <- min(DODANAVRED["445", (5:18)], na.rm=TRUE)
-max.povprecje <- max(DODANAVRED["445", (5:18)], na.rm=TRUE)
-povprecje <- DODANAVRED["445", (5:18)]
-norm.2012 <- (DODANAVRED["445", (5:18)]-min.povprecje)/(max.povprecje-min.povprecje)
-# Narišimo zemljevid v PDF.
-cat("Rišem zemljevid...\n")
-pdf("slike/zemljevid.pdf", width=6, height=4)
-
 
 min.povprecje <- min(povprecje, na.rm=TRUE)
 max.povprecje <- max(povprecje, na.rm=TRUE)
@@ -76,13 +65,6 @@ legend("bottomright", legend = round(seq(min.povprecje, max.povprecje, (max.povp
        fill = rgb(1, 1, (6:1)/6), bg = "white")
 slo$dv2012 <- povprecje[c(1:12),]
 
-#n = 100
-#barve =terrain.colors(n)[unlist(1+(n-1)*norm.2012)]
-plot(slo, col = barve)
-text(coordinates(slo),labels=as.character(slo$NAME_1),cex=0.3)
-barve=rainbow(12)
- 
-
 
 dev.off()
 
@@ -95,10 +77,6 @@ print(spplot(slo, "dv2012" ,col.regions  = topo.colors(50),
 
 
 dev.off()
-
-
-
-
 
 
 
