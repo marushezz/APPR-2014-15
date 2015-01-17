@@ -29,7 +29,7 @@ preuredi <- function(podatki, zemljevid) {
 
 # Narišimo zemljevid v PDF.
 cat("Rišem zemljevid Slovenije...\n")
-pdf("slike/Slovenija.pdf")
+pdf("slike/Slo.pdf")
 
 #Preuredimo podatke
 povprecje <- preuredi(apply(DODANAVRED[445, c(6:9, 11:18)], 1, c), slo)
