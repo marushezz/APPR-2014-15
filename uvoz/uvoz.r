@@ -72,5 +72,15 @@ dev.off()
 
 
 
-
+uvoziPREBIVALSTVO <- function() {
+  return(read.table("podatki/GIBANJEPREBIVALSTVA.csv", sep = ";", as.is = TRUE,
+                    
+                    
+                    col.names = c("Leto", "Prebivalstvo"),                  
+                    
+                    
+                    fileEncoding = "Windows-1250"))
+}
+cat("Uvažam podatke o GIBANJUPREBIVALSTVA ...\n")
+GIBANJEPREBIVALSTVA <- uvoziPREBIVALSTVO()
 

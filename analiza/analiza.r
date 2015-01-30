@@ -1,17 +1,35 @@
 # 4. faza: Analiza podatkov
 
-# Uvozimo funkcijo za uvoz spletne strani.
-source("lib/xml.r")
 
-# Preberemo spletno stran v razpredelnico.
-cat("Uvažam spletno stran...\n")
-tabela <- preuredi(uvozi.obcine(), obcine)
+DODANAVREDNOST <- DODANAVRED[seq(1, 468, 36), "SLOVENIJA"]
+P <- data.frame(X=CELOTNADODANAVREDNOST, Y=PREBIVALSTVO)
+PREBIVALSTVO <- GIBANJEPREBIVALSTVA[(1: 13), "Prebivalstvo"]
+vrednosti <- summary(X)
+lm <- lm(X ~ Y, data = P)
+summary(lm)
+predict(lm)
+plot(predict(lm))
+lines(DODANAVREDNOST, PREBIVALSTVO, col="red", lwd=10)
 
-# Narišemo graf v datoteko PDF.
-cat("Rišem graf...\n")
-pdf("slike/naselja.pdf", width=6, height=4)
-plot(tabela[[1]], tabela[[4]],
-     main = "Število naselij glede na površino občine",
-     xlab = "Površina (km^2)",
-     ylab = "Št. naselij")
+
+
+
+
+pdf("slike/napov.pdf")
+plot(DODANAVREDNOST ~ PREBIVALSTVO)
+
 dev.off()
+
+#leta 2008 največji BDP,po letu 2008 kljub rasti prebivalstva BDP začne padati(gospodarska kriza)
+
+pdf("slike/preb-BDP.pdf")
+plot(DODANAVREDNOST, PREBIVALSTVO, pch=20, col="blue")
+
+mgam <- gam(Y ~ s(X), data = P)
+curve(predict(mgam, data.frame(X=x)), add = TRUE, col = "red")
+
+
+dev.off()
+
+
+

@@ -15,7 +15,7 @@ source("uvoz/uvoz.r")
 source("vizualizacija/vizualizacija.r")
 
 # 4. faza: Napredna analiza podatkov
-#source("analiza/analiza.r")
+source("analiza/analiza.r")
 
 cat("Končano.\n")
 

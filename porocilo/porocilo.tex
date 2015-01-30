@@ -8,6 +8,7 @@
 \usepackage{url}
 
 
+
 \pagestyle{plain}
 
 
@@ -16,7 +17,7 @@
 \title{Poročilo pri predmetu \\
 Analiza podatkov s programom R}
 \author{Maruša Valant}
-\maketitle{Analiza regionalne bruto 
+\title{Analiza regionalne bruto 
 dodane vrednosti v osnovnih cenah 
 po letu,standardni klasifikaciji 
 dejavnosti in regijah} 
@@ -28,20 +29,27 @@ V projektu bom analizirala podatke o bruto dodani vrednosti po dejavnostih v Slo
 \begin{itemize}
 
 \item{\url{http://www.stat.si/novica_prikazi.aspx?id=6254}}
+\item{\url{http://pxweb.stat.si/pxweb/Database/Regije/Regije.aspn}}
 
 \end{itemize}
 
 \section{Obdelava, uvoz in čiščenje podatkov}
 
-Uvozila sem podatke v obliki csv in spletne strani
+Uvozila sem podatke o bruto dodani vrednosti v Sloveniji v letih od 2000 do 2012 v obliki csv(ime tabele je DODANAVRED) iz spletne strani Statističnega urada Republike Slovenije. Tabela vsebuje:
 
+\begin{enumerate}
+\item{posamezne regije(imenska spremenljivka)}
+\item{dejavnosti(imenska spremenljivka)}
+\item{strukturo po regijah in dejavnostih(urejenostni spremenljivki)}
+\item{dodane vrednosti po regijah in dejavnostih(številski spremenljivki)}
 
+\end{enumerate}
 
-in podatke v obliki html iz spletne strani 
+Nato sem uvozila še tabelo(dodanavrednost) v obliki html, ki vsebuje podatke za leti 2012 in 2013, iz spletne strani: 
 \begin{itemize}
 \item{\url{http://www.stat.si/novica_prikazi.aspx?id=6254n}}.
 \end{itemize}
-
+V tabeli so podane samo številske spremenljivke o bruto dodani vrednosti za celotno Slovenijo in posamezne regije.
 
 Po uvozu podatkov sem oblikovala tortni graf, ki predstavlja deleže dodanih vrednosti v Sloveniji po dejavnostih v letu 2012.
 \newpage
@@ -67,12 +75,15 @@ RSTU & Druge dejavnosti
 \end{center}
 
 
+Iz grafa je razvidno, da so največji delež bruto dodane vrednosti v Sloveniji leta 2012 prinesle \textit{predelovalne dejavnosti, rudarstvo in druga industrija}, sledijo ji \textit{trgovina, gostinstvo, promet}, najmanj pa so prispevale \textit{kmetijstvo, gozdarstvo in ribištvo}.\\
 
 
 
 
-Za primerjavo bruto dodane vrednosti v Sloveniji v letih 2012 in 2013 sem naredila še stolpični graf tako da je za vsako dejavnost skupaj dodana vrednost v letu 2012 (v  modri barvi) in zraven dodana vrednost v letu 2013 (v rdeči barvi). 
-\newline
+Za primerjavo bruto dodane vrednosti v Sloveniji v letih 2012 in 2013 sem naredila še stolpični graf tako da je za vsako dejavnost skupaj dodana vrednost v letu 2012 (v  modri barvi) in zraven dodana vrednost v letu 2013 (v rdeči barvi).\\
+
+
+
 \textbf{Legenda kratic na x-osi v stolpičnem grafu:}
 \begin{table}[h]
 \begin{tabular}{lll}
@@ -98,6 +109,8 @@ S & Druge dejavnosti
 \end{tabular}
 \end{table}
 
+Iz grafa lahko vidimo, da v letu 2013 napram 2012 ni večjih sprememb.Malo je zrasla dodana vrednost v predelovalni dejavnosti, oskrbi z el.energijo,plinom in paro, oskrbi z vodo, prometu in skladiščenju, padla pa v rudarstvu, gradbeništvu, finančnih in zavarovalniških dejavnostih, ter poslovanju z nepremičninami.\\
+
 
 \begin{center}
 
@@ -107,19 +120,27 @@ S & Druge dejavnosti
 
 
 \section{Analiza in vizualizacija podatkov}
-Za boljšo predstavitev podatkov sem uvozila zemljevid Slovenije. Na njem so označene posamezne regije, glavno mesto Slovenije - Ljuvljana, je označeno z rdečim kvadratom, različne barve regij pa nam povejo kako produktivne so bile posamezne regije leta 2012 ( rumena predstavlja najbolj produktivne, bela pa najmanj produktivne).
+Za boljšo predstavitev podatkov sem uvozila zemljevid Slovenije. Na njem so označene posamezne regije, glavno mesto Slovenije - Ljubljana, je označeno z rdečim kvadratom, različne barve regij pa nam povejo kako produktivne so bile posamezne regije leta 2012.
 
 \newpage
 \begin{center}
-\includegraphics[width=\textwidth]{../slike/Slo.pdf}
+\includegraphics[width=\textwidth]{../slike/Slov.pdf}
 \end{center}
 
 Iz zemljevida je razvidno, da je leta 2012 največji del bruto dodane vrednosti v Sloveniji prispevala Osrednjeslovenska (36.8\%), najmanj pa Zasavska (1.4\%).
 
 
 \section{Napredna analiza podatkov}
+Za analizo podatkov sem uvozila še tabelo(GIBANJEPREBIVALSTVA) v obliki csv iz spletne strani:
+\begin{itemize}
+\item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=05A2010S&ti=&path=../Database/Dem_soc/05_prebivalstvo/05_osnovni_podatki_preb/10_05A20_prebivalstvo_letno/&lang=2}}
+\end{itemize}
+v kateri so podatki o številu prebivalcev Slovenije v letih od 2000 do 2012.
+Na podlagi te tabele in podatkov o bruto dodani vrednosti po posameznih letih v Sloveniji iz tabele DODANAVRED, sem narisala graf. \\
 
+Opazimo, da v letih od 2000 do 2008, rasteta tako število prebivalcev kot BDP, od leta 2008 naprej, pa število prebivalcev raste BDP pa pada. Razlog za padec BDP je najverjetneje gospodarska kriza, ki se je začela ravno leta 2008.
 
+\includegraphics[width=\textwidth]{../slike/preb-BDP.pdf}
 
 \end{document}
 
