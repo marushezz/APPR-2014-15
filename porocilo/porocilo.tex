@@ -14,13 +14,14 @@
 
 \begin{document}
 
-\title{Poročilo pri predmetu \\
-Analiza podatkov s programom R}
+
+
 \author{Maruša Valant}
 \title{Analiza regionalne bruto 
 dodane vrednosti v osnovnih cenah 
 po letu,standardni klasifikaciji 
 dejavnosti in regijah} 
+\maketitle
 
 \section{O projektu}
 
@@ -131,16 +132,26 @@ Iz zemljevida je razvidno, da je leta 2012 največji del bruto dodane vrednosti 
 
 
 \section{Napredna analiza podatkov}
-Za analizo podatkov sem uvozila še tabelo(GIBANJEPREBIVALSTVA) v obliki csv iz spletne strani:
+Za analizo podatkov sem uvozila še tabelo (prebivalstvo) v obliki csv iz spletne strani:
 \begin{itemize}
 \item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=05A2010S&ti=&path=../Database/Dem_soc/05_prebivalstvo/05_osnovni_podatki_preb/10_05A20_prebivalstvo_letno/&lang=2}}
 \end{itemize}
-v kateri so podatki o številu prebivalcev Slovenije v letih od 2000 do 2012.
-Na podlagi te tabele in podatkov o bruto dodani vrednosti po posameznih letih v Sloveniji iz tabele DODANAVRED, sem narisala graf. \\
+v kateri so podatki o številu prebivalcev Slovenije v letih od 1960 do 2013.
+Na podlagi podatkov od let 2000 do 2012 iz te tabele(prebivalstvo) in podatkov o bruto dodani vrednosti po posameznih letih v Sloveniji iz tabele DODANAVRED, sem narisala graf. \\
 
 Opazimo, da v letih od 2000 do 2008, rasteta tako število prebivalcev kot BDP, od leta 2008 naprej, pa število prebivalcev raste BDP pa pada. Razlog za padec BDP je najverjetneje gospodarska kriza, ki se je začela ravno leta 2008.
 
-\includegraphics[width=\textwidth]{../slike/preb-BDP.pdf}
+\includegraphics[width=\textwidth]{../slike/prebBDP.pdf}
+
+Zaradi padca BDP, ne moremo sklepati, da sta rast prebivalstva in BDP povezana. Iz tega razloga sem naredila napovedi ločeno.
+\begin{center}
+\includegraphics[width=\textwidth]{../slike/napovedBDP.pdf}
+\end{center}
+Model napoveduje, da bo BDP v prihodnosti še malo padal.
+\begin{center}
+\includegraphics[width=\textwidth]{../slike/napovedPREBIVALSTVA.pdf}
+\end{center}
+Iz slike je razvidno, da model napoveduje rast prebivalstva v prihodnje.
 
 \end{document}
 
