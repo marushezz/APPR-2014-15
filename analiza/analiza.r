@@ -1,7 +1,7 @@
 # 4. faza: Analiza podatkov
 
 library(mgcv)
-
+library(forecast)
 
 DODANAVREDNOST <- DODANAVRED[seq(1, 468, 36), "SLOVENIJA"]
 PREBIVALSTVO <- prebivalstvo[(41:53),"Prebivalstvo"]
@@ -27,7 +27,7 @@ dev.off()
 detach(P)
 
 
-
+#napoved  BDP
 pdf("slike/napovedBDP.pdf")
 leto <- DODANAVRED[seq(1, 468, 36),"Leto"]
 BL <- data.frame(X=leto,Y=DODANAVREDNOST)
@@ -35,6 +35,7 @@ bdpts <- ts(data=BL$Y, start=c(2000,1)) # časovni vektor
 plot(forecast(bdpts), main="Napoved BDP", ylim=c(0,50000), ylab="Dodana vrednost", xlab="Leto")
 dev.off()
 
+#napoved prebivalstva
 pdf("slike/napovedPREBIVALSTVA.pdf")
 D <- data.frame(prebivalstvo)
 prebts <- ts(data=D$Prebivalstvo, start=c(1960,1))

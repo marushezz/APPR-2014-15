@@ -33,7 +33,7 @@ uvoziSLO <- function() {
 
 
 
-#Zapišimo podatke v razpredelnico druzine.
+#Zapišimo podatke v razpredelnico
 cat("Uvažam podatke o DODANAVRED...\n")
 DODANAVRED <- uvoziSLO()
 
