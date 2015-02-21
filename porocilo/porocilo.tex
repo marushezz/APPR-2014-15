@@ -24,7 +24,6 @@ dejavnosti in regijah}
 \maketitle
 
 \section{O projektu}
-
 V projektu bom analizirala podatke o bruto dodani vrednosti po dejavnostih v Sloveniji v letih 2000-2013. Podatke sem pridobila iz Statističnega urada Republike Slovenije:
 
 \begin{itemize}
@@ -76,11 +75,8 @@ RSTU & Druge dejavnosti
 \end{center}
 
 
-Iz grafa je razvidno, da so največji delež bruto dodane vrednosti v Sloveniji leta 2012 prinesle \textit{predelovalne dejavnosti, rudarstvo in druga industrija}, sledijo ji \textit{trgovina, gostinstvo, promet}, najmanj pa so prispevale \textit{kmetijstvo, gozdarstvo in ribištvo}.\\
-
-
-
-
+Iz grafa je razvidno, da so največji dele\-ž bruto dodane vrednosti v Sloveniji leta 2012 prinesle \textit{predelovalne dejavnosti, rudarstvo in
+druga industrija}, sledijo ji \textit{trgovina, gostinstvo, promet}, najmanj pa so prispevale \textit{kmetijstvo, gozdarstvo in ribi\-štvo}. \\
 Za primerjavo bruto dodane vrednosti v Sloveniji v letih 2012 in 2013 sem naredila še stolpični graf tako da je za vsako dejavnost skupaj dodana vrednost v letu 2012 (v  modri barvi) in zraven dodana vrednost v letu 2013 (v rdeči barvi).\\
 
 
@@ -91,7 +87,7 @@ Za primerjavo bruto dodane vrednosti v Sloveniji v letih 2012 in 2013 sem naredi
 A  & Kmetijstvo in lov,gozdarstvo,ribištvo \\
 B & Rudarstvo  \\
 C & Predelovalne dejavnosti  \\
-D & Oskrba z el.energijo,plinom in paro	\\
+D & Oskrba z el.energijo,plinom in paro  \\
 E & Oskr.z vodo;rav.z odpl.,odp.;san.okolja	\\
 F & Gradbeništvo	\\
 G & Trgovina;vzdrž.in popravila mot.vozil	\\
@@ -116,13 +112,10 @@ Iz grafa lahko vidimo, da v letu 2013 napram 2012 ni večjih sprememb.Malo je zr
 \begin{center}
 
 \includegraphics[width=\textwidth]{../slike/plot.pdf}
-
 \end{center}
-
 
 \section{Analiza in vizualizacija podatkov}
 Za boljšo predstavitev podatkov sem uvozila zemljevid Slovenije. Na njem so označene posamezne regije, glavno mesto Slovenije - Ljubljana, je označeno z rdečim kvadratom, različne barve regij pa nam povejo kako produktivne so bile posamezne regije leta 2012.
-
 \newpage
 \begin{center}
 \includegraphics[width=\textwidth]{../slike/Slov.pdf}
@@ -132,26 +125,41 @@ Iz zemljevida je razvidno, da je leta 2012 največji del bruto dodane vrednosti 
 
 
 \section{Napredna analiza podatkov}
+
 Za analizo podatkov sem uvozila še tabelo (prebivalstvo) v obliki csv iz spletne strani:
 \begin{itemize}
 \item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=05A2010S&ti=&path=../Database/Dem_soc/05_prebivalstvo/05_osnovni_podatki_preb/10_05A20_prebivalstvo_letno/&lang=2}}
 \end{itemize}
 v kateri so podatki o številu prebivalcev Slovenije v letih od 1960 do 2013.
-Na podlagi podatkov od let 2000 do 2012 iz te tabele(prebivalstvo) in podatkov o bruto dodani vrednosti po posameznih letih v Sloveniji iz tabele DODANAVRED, sem narisala graf. \\
-
+Na podlagi podatkov od let 2000 do 2012 iz te tabele(prebivalstvo) in podatkov o bruto dodani vrednosti po posameznih letih v Sloveniji iz tabele DODANAVRED, sem narisala graf s pomočjo funkcije gam. \\
 Opazimo, da v letih od 2000 do 2008, rasteta tako število prebivalcev kot BDP, od leta 2008 naprej, pa število prebivalcev raste BDP pa pada. Razlog za padec BDP je najverjetneje gospodarska kriza, ki se je začela ravno leta 2008.
 
 \includegraphics[width=\textwidth]{../slike/prebBDP.pdf}
 
 Zaradi padca BDP, ne moremo sklepati, da sta rast prebivalstva in BDP povezana. Iz tega razloga sem naredila napovedi ločeno.
+
+S pomočjo funkcije ts, ki je ustvarila časovno serijo podatkov in funkcijo forecast sem naredila model, ki napoveduje da bo BDP v prihodnosti še malo padal.\\
+
+\newpage
 \begin{center}
 \includegraphics[width=\textwidth]{../slike/napovedBDP.pdf}
 \end{center}
-Model napoveduje, da bo BDP v prihodnosti še malo padal.
+Na enak način sem naredila model, ki napoveduje
+rast prebivalstva v prihodnje. \\
+Modela prikazujeta z odtenkom sive tudi interval, v katerem naj bi prikazana spremenljivka ležala v določenem obdobju z določeno verjetnostjo. S temnejšim odtenkom je prikazan interval z 80\% verjetnostjo, s svetlejšim pa 95\% verjetnostjo. Iz grafov je razvidno, da je negotovost glede BDP veliko večja kot za prebivalstvo.
+
+\newpage
 \begin{center}
 \includegraphics[width=\textwidth]{../slike/napovedPREBIVALSTVA.pdf}
-\end{center}
-Iz slike je razvidno, da model napoveduje rast prebivalstva v prihodnje.
+\end{center} 
+
+
+
+
+
+
+
+
 
 \end{document}
 
