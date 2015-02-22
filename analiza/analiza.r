@@ -43,7 +43,7 @@ plot(forecast(prebts), main="Napoved prebivalstva", xlab="Leto", ylab="število 
 dev.off()
 
 dolg <- DOLG[(1:13), "Dolg"] #vrednost dolga
-
+dpomoc <- socialna[(1:13), "Izdatki.za.socialne.prejemke"]
 
 # stolpični graf-primerjava BDP z dolgom po letih
 pdf("slike/dolg.pdf")
@@ -61,5 +61,6 @@ legend("topleft",
 
 
 dev.off()
+
 
 
