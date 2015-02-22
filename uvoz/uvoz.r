@@ -88,7 +88,7 @@ prebivalstvo <- uvoziPREBIVALSTVO()
 
 
 
-uvoziDRŽAVNIDOLG <- function() {
+uvoziDRZAVNIDOLG <- function() {
   return(read.table("podatki/dolg.csv", sep = ";", as.is = TRUE,
                     
                     
@@ -98,5 +98,16 @@ uvoziDRŽAVNIDOLG <- function() {
                     fileEncoding = "Windows-1250"))
 }
 cat("Uvažam podatke o državnemdolgu ...\n")
-DOLG <- uvoziDRŽAVNIDOLG()
+DOLG <- uvoziDRZAVNIDOLG()
 
+uvoziPREB <- function() {
+  return(read.table("podatki/prebreg1.csv", sep = ";", as.is = TRUE,
+                    
+                    
+                    col.names = c("Regije", "Število prebivalcev"),                  
+                    
+                    
+                    fileEncoding = "Windows-1250"))
+}
+cat("Uvažam podatke o preb ...\n")
+PREBIVALSTVOREGIJE <- uvoziPREB()

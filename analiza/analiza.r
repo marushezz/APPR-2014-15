@@ -43,7 +43,7 @@ plot(forecast(prebts), main="Napoved prebivalstva", xlab="Leto", ylab="število 
 dev.off()
 
 dolg <- DOLG[(1:13), "Dolg"] #vrednost dolga
-dpomoc <- socialna[(1:13), "Izdatki.za.socialne.prejemke"]
+
 
 # stolpični graf-primerjava BDP z dolgom po letih
 pdf("slike/dolg.pdf")
@@ -62,5 +62,24 @@ legend("topleft",
 
 dev.off()
 
+
+prebivalcireg <-PREBIVALSTVOREGIJE[,"Število.prebivalcev"]
+DEJ <- as.integer(as.table(matrix(DODANAVRED[445, c(6:9, 11:18)])))
+
+pdf("slike/delez.pdf")
+range1 <- range(0, DEJ, prebivalcireg)
+plot(DEJ, type="o", col="red",ylim=range1, axes=FALSE, ann=FALSE)
+axis(1, at=1:12)
+axis(2, at=0:36)
+box()
+lines(prebivalcireg, type="o", pch=22, col="blue", lty=2)
+title(main="Primerjava deleža BDP in prebivalcev po regijah")
+title(xlab="Regije")
+title(ylab="delež")
+legend("topright", c("delež dejavnosti","delež prebivalstva"), cex=0.8,
+       col=c("red","blue"), lty=1:2)
+
+
+dev.off()
 
 

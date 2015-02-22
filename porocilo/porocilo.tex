@@ -153,8 +153,36 @@ Modela prikazujeta z odtenkom sive tudi interval, v katerem naj bi prikazana spr
 \includegraphics[width=\textwidth]{../slike/napovedPREBIVALSTVA.pdf}
 \end{center} 
 
+Čeprav povezave med rastjo BDP in prebivalstva ni pa spodnji graf prikazuje očitno povezanost med deležem BDP in deležem prebivalstva po regijah v Sloveniji v letu 2012. \\
+\newpage
+\textbf{Legenda za regije na x- osi grafa: Primerjava deleža BDP in prebivalcev po regijah}
+\begin{table}[h]
+\begin{tabular}{lll}
+1 & Obalno kraška \\
+2 & Goriška \\
+3 & Gorenjska \\
+4 & Osrednjeslovenska \\
+5 & Notranjsko-kraška \\
+6 & Jugovzhodna Slovenija\\
+7 & Spodnje posavska\\
+8 & Zasavska\\
+9 & Savinjska \\
+10 & Koroška \\
+11 & Podravska\\
+12 & Pomurska\\
+\end{tabular}
+\end{table}
 
-Kot smo videli v prejšnem modelu je v zadnjih letih BDP začel padati, zato sem naredila stolpični graf, ki prikazuje vpliv padca gospodarske aktivnosti na javne finance.
+\begin{center}
+\includegraphics[width=\textwidth]{../slike/delez.pdf}
+\end{center}
+Podatke o deležu prebivalstva po regijah sem dobila na spletni strani Statističnega urada:
+\begin{itemize}
+\item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=05C2001S&ti=&path=../Database/Dem_soc/05_prebivalstvo/10_stevilo_preb/10_05C20_prebivalstvo_stat_regije/&lang=2}} 
+\end{itemize}
+in jih v obliki csv shranila v tabelo PREBIVALSTVOREGIJE.\\
+
+Kot smo videli v modelu napovedi za BDP je v zadnjih letih BDP začel padati, zato sem naredila stolpični graf, ki prikazuje vpliv padca gospodarske aktivnosti na javne finance.
 Za prikaz te posledice sem uvozila podatke v obliki csv iz spletne strani:
 \begin{itemize}
 \item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=3269302S&ti=&path=../Database/Okolje/32_trajnostni_razvoj/15_medgenerac_sodelovanje/10_32693_drzavni_dolg/&lang=2}}
@@ -167,7 +195,16 @@ Iz grafa je razvidno, da se je dolg Slovenije po padcu BDP začel drastično ve�
 \end{center}
 
 
-
+\newpage
+\section{Povzetek}
+Glavne ugotovitve pri analizi bruto dodane vrednosti v Sloveniji so:
+\begin{enumerate}
+\item Različne dejavnosti prinašajo različne deleže bruto dodane vrednosti. V Sloveniji največ prispevajo predelovalne dejavnosti, najmanj pa kmetijstvo, gozdarstvo in ribištvo.
+\item Skozi čas se delež bruto dodane vrednosti po dejavnostih ne spreminja kaj dosti.
+\item Najbolj produktivna regija je Osrednje slovenska, eden izmed razlogov je gotovo bolj gosta naseljenost.
+\item Do gospodarske krize (leta 2008) rasteta tako, BDP kot prebivalstvo, po začetku gopodarske krize pa opazimo, da prebivalstvo še naprej raste, BDP pa začne padati.
+\item Glavna posledica padca BDP so manjši prihodki države in s tem večji javni dolg.
+\end{enumerate}
 
 
 
