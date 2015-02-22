@@ -84,3 +84,15 @@ uvoziPREBIVALSTVO <- function() {
 cat("Uvažam podatke o prebivalstvu ...\n")
 prebivalstvo <- uvoziPREBIVALSTVO()
 
+uvoziDRŽAVNIDOLG <- function() {
+  return(read.table("podatki/dolg.csv", sep = ";", as.is = TRUE,
+                    
+                    
+                    col.names = c("Leto", "Dolg"),                  
+                    
+                    
+                    fileEncoding = "Windows-1250"))
+}
+cat("Uvažam podatke o državnemdolgu ...\n")
+DOLG <- uvoziDRŽAVNIDOLG()
+

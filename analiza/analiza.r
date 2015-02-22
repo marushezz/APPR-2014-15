@@ -42,3 +42,24 @@ prebts <- ts(data=D$Prebivalstvo, start=c(1960,1))
 plot(forecast(prebts), main="Napoved prebivalstva", xlab="Leto", ylab="število prebivalcev")
 dev.off()
 
+dolg <- DOLG[(1:13), "Dolg"] #vrednost dolga
+
+
+# stolpični graf-primerjava BDP z dolgom po letih
+pdf("slike/dolg.pdf")
+
+counts1 <- matrix(c(DODANAVREDNOST, dolg), nrow=2, byrow=TRUE)
+
+barplot(counts1,xlab = "Leto", ylab="Vrednost", main= " Primerjava bruto dodane vrednosti in dolga po letih", 
+        col=c("blue","green"), width=3, beside=TRUE,
+        names.arg= 2000:2012)
+legend("topleft", 
+       legend = c("dodana vrednost", "dolg"), 
+       fill = c("blue", "green"))
+
+
+
+
+dev.off()
+
+
