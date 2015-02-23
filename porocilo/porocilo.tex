@@ -76,9 +76,9 @@ RSTU & Druge dejavnosti
 
 
 Iz grafa je razvidno, da so največji dele\-ž bruto dodane vrednosti v Sloveniji leta 2012 prinesle \textit{predelovalne dejavnosti, rudarstvo in
-druga industrija}, sledijo ji \textit{trgovina, gostinstvo, promet}, najmanj pa so prispevale \textit{kmetijstvo, gozdarstvo in ribi\-štvo}. \\
-Za primerjavo bruto dodane vrednosti v Sloveniji v letih 2012 in 2013 sem naredila še stolpični graf tako da je za vsako dejavnost skupaj dodana vrednost v letu 2012 (v  modri barvi) in zraven dodana vrednost v letu 2013 (v rdeči barvi).\\
+druga industrija}, sledijo ji \textit{trgovina, gostinstvo, promet}, najmanj pa so prispevale \textit{kmetijstvo, gozdarstvo in ribi\-štvo}. 
 
+Za primerjavo bruto dodane vrednosti v Sloveniji v letih 2012 in 2013 sem naredila še stolpični graf tako da je za vsako dejavnost skupaj dodana vrednost v letu 2012 (v  modri barvi) in zraven dodana vrednost v letu 2013 (v rdeči barvi).
 
 
 \textbf{Legenda kratic na x-osi v stolpičnem grafu:}
@@ -106,7 +106,7 @@ S & Druge dejavnosti
 \end{tabular}
 \end{table}
 
-Iz grafa lahko vidimo, da v letu 2013 napram 2012 ni večjih sprememb.Malo je zrasla dodana vrednost v predelovalni dejavnosti, oskrbi z el.energijo,plinom in paro, oskrbi z vodo, prometu in skladiščenju, padla pa v rudarstvu, gradbeništvu, finančnih in zavarovalniških dejavnostih, ter poslovanju z nepremičninami.\\
+Iz grafa lahko vidimo, da v letu 2013 napram 2012 ni večjih sprememb. Malo je zrasla dodana vrednost v predelovalni dejavnosti, oskrbi z el.energijo,plinom in paro, oskrbi z vodo, prometu in skladiščenju, padla pa v rudarstvu, gradbeništvu, finančnih in zavarovalniških dejavnostih, ter poslovanju z nepremičninami.
 
 
 \begin{center}
@@ -131,14 +131,15 @@ Za analizo podatkov sem uvozila še tabelo (prebivalstvo) v obliki csv iz spletn
 \item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=05A2010S&ti=&path=../Database/Dem_soc/05_prebivalstvo/05_osnovni_podatki_preb/10_05A20_prebivalstvo_letno/&lang=2}}
 \end{itemize}
 v kateri so podatki o številu prebivalcev Slovenije v letih od 1960 do 2013.
-Na podlagi podatkov od let 2000 do 2012 iz te tabele(prebivalstvo) in podatkov o bruto dodani vrednosti po posameznih letih v Sloveniji iz tabele DODANAVRED, sem narisala graf s pomočjo funkcije gam. \\
+Na podlagi podatkov od let 2000 do 2012 iz te tabele(prebivalstvo) in podatkov o bruto dodani vrednosti po posameznih letih v Sloveniji iz tabele DODANAVRED, sem narisala graf s pomočjo funkcije gam. 
+
 Opazimo, da v letih od 2000 do 2008, rasteta tako število prebivalcev kot BDP, od leta 2008 naprej, pa število prebivalcev raste BDP pa pada. Razlog za padec BDP je najverjetneje gospodarska kriza, ki se je začela ravno leta 2008.
 
 \includegraphics[width=\textwidth]{../slike/prebBDP.pdf}
 
 Zaradi padca BDP, ne moremo sklepati, da sta rast prebivalstva in BDP povezana. Iz tega razloga sem naredila napovedi ločeno.
 
-S pomočjo funkcije ts, ki je ustvarila časovno serijo podatkov in funkcijo forecast sem naredila model, ki napoveduje da bo BDP v prihodnosti še malo padal.\\
+S pomočjo funkcije ts, ki je ustvarila časovno serijo podatkov in funkcijo forecast sem naredila model, ki napoveduje da bo BDP v prihodnosti še malo padal.
 
 \newpage
 \begin{center}
@@ -153,36 +154,39 @@ Modela prikazujeta z odtenkom sive tudi interval, v katerem naj bi prikazana spr
 \includegraphics[width=\textwidth]{../slike/napovedPREBIVALSTVA.pdf}
 \end{center} 
 
-Čeprav povezave med rastjo BDP in prebivalstva ni pa spodnji graf prikazuje očitno povezanost med deležem BDP in deležem prebivalstva po regijah v Sloveniji v letu 2012. \\
+Čeprav povezave med rastjo BDP in prebivalstva ni pa spodnji graf prikazuje očitno povezanost med deležem BDP in deležem prebivalstva po regijah v Sloveniji v letu 2012. 
+
 \newpage
 \textbf{Legenda za regije na x- osi grafa: Primerjava deleža BDP in prebivalcev po regijah}
 \begin{table}[h]
 \begin{tabular}{lll}
-1 & Obalno kraška \\
-2 & Goriška \\
-3 & Gorenjska \\
-4 & Osrednjeslovenska \\
-5 & Notranjsko-kraška \\
-6 & Jugovzhodna Slovenija\\
-7 & Spodnje posavska\\
-8 & Zasavska\\
-9 & Savinjska \\
-10 & Koroška \\
+
+1 & Notranjsko-kraška \\
+2 & Zasavska\\
+3 & Koroška \\
+4 & Spodnje posavska\\
+5 & Pomurska\\
+6 & Obalno kraška \\
+7 & Goriška \\
+8 & Jugovzhodna Slovenija\\
+9 & Gorenjska \\
+10 & Savinjska \\
 11 & Podravska\\
-12 & Pomurska\\
+12 & Osrednjeslovenska \\
+
 \end{tabular}
 \end{table}
 
 \begin{center}
-\includegraphics[width=\textwidth]{../slike/delez.pdf}
+\includegraphics[width=\textwidth]{../slike/delez1.pdf}
 \end{center}
 Podatke o deležu prebivalstva po regijah sem dobila na spletni strani Statističnega urada:
 \begin{itemize}
 \item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=05C2001S&ti=&path=../Database/Dem_soc/05_prebivalstvo/10_stevilo_preb/10_05C20_prebivalstvo_stat_regije/&lang=2}} 
 \end{itemize}
-in jih v obliki csv shranila v tabelo PREBIVALSTVOREGIJE.\\
+in jih v obliki csv shranila v tabelo PREBIVALSTVOREGIJE.
 
-Kot smo videli v modelu napovedi za BDP je v zadnjih letih BDP začel padati, zato sem naredila stolpični graf, ki prikazuje vpliv padca gospodarske aktivnosti na javne finance.
+Kot smo videli v modelu napovedi za BDP je v zadnjih letih BDP začel padati, zato sem naredila graf, ki prikazuje vpliv padca gospodarske aktivnosti na javne finance.
 Za prikaz te posledice sem uvozila podatke v obliki csv iz spletne strani:
 \begin{itemize}
 \item{\url{http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=3269302S&ti=&path=../Database/Okolje/32_trajnostni_razvoj/15_medgenerac_sodelovanje/10_32693_drzavni_dolg/&lang=2}}
@@ -191,7 +195,7 @@ Za prikaz te posledice sem uvozila podatke v obliki csv iz spletne strani:
 Iz grafa je razvidno, da se je dolg Slovenije po padcu BDP začel drastično večati, saj so se odhodki napram prihodkov povečali.
 
 \begin{center}
-\includegraphics[width=\textwidth]{../slike/dolg.pdf}
+\includegraphics[width=\textwidth]{../slike/dolg2.pdf}
 \end{center}
 
 

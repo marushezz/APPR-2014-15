@@ -6,12 +6,12 @@ library(forecast)
 DODANAVREDNOST <- DODANAVRED[seq(1, 468, 36), "SLOVENIJA"]
 PREBIVALSTVO <- prebivalstvo[(41:53),"Prebivalstvo"]
 P <- data.frame(X=DODANAVREDNOST, Y=PREBIVALSTVO)
-plot(DODANAVREDNOST ~ PREBIVALSTVO)
-lm <- lm(X ~ Y, data = P)
-summary(lm)
-predict(lm)
-plot(predict(lm))
-lines(DODANAVREDNOST, PREBIVALSTVO, col="red", lwd=10)
+# plot(DODANAVREDNOST ~ PREBIVALSTVO)
+# lm <- lm(X ~ Y, data = P)
+# summary(lm)
+# predict(lm)
+# plot(predict(lm))
+# lines(DODANAVREDNOST, PREBIVALSTVO, col="red", lwd=10)
 
 
 #leta 2008 največji BDP,po letu 2008 kljub rasti prebivalstva BDP začne padati(gospodarska kriza)
@@ -42,44 +42,41 @@ prebts <- ts(data=D$Prebivalstvo, start=c(1960,1))
 plot(forecast(prebts), main="Napoved prebivalstva", xlab="Leto", ylab="število prebivalcev")
 dev.off()
 
-dolg <- DOLG[(1:13), "Dolg"] #vrednost dolga
 
+#Stolpični graf primerjava deleža prebivalstva in deleža BDP
+prebivalcireg <-PREBIVALSTVOREGIJE[,"Število.prebivalcev"]
+DEJ <- as.integer(as.table(matrix(DODANAVRED[445, c(6:9, 11:18)])))
+DEJ1 <- DEJ[order(DEJ)]
+prebivalcireg1 <- prebivalcireg[c(5 ,8, 10,  7, 12,  1,  2,  6,  3,  9, 11,  4)]
 
-# stolpični graf-primerjava BDP z dolgom po letih
-pdf("slike/dolg.pdf")
-
-counts1 <- matrix(c(DODANAVREDNOST, dolg), nrow=2, byrow=TRUE)
-
-barplot(counts1,xlab = "Leto", ylab="Vrednost", main= " Primerjava bruto dodane vrednosti in dolga po letih", 
-        col=c("blue","green"), width=3, beside=TRUE,
-        names.arg= 2000:2012)
-legend("topleft", 
-       legend = c("dodana vrednost", "dolg"), 
+pdf("slike/delez1.pdf")
+prebdej <- matrix(c(prebivalcireg1, DEJ1), nrow=2, byrow=TRUE)
+barplot(prebdej, xlab= "Regije", ylab="Vrednost", main= "Primerjava deleža BDP in prebivalcev po regijah", 
+        col=c("blue", " green"), width=3, beside=TRUE, names.arg=1:12)
+legend("topleft", legend = c("delež prebivalstva", "delež BDP"), 
        fill = c("blue", "green"))
-
-
-
-
 dev.off()
 
 
-prebivalcireg <-PREBIVALSTVOREGIJE[,"Število.prebivalcev"]
-DEJ <- as.integer(as.table(matrix(DODANAVRED[445, c(6:9, 11:18)])))
 
-pdf("slike/delez.pdf")
-range1 <- range(0, DEJ, prebivalcireg)
-plot(DEJ, type="o", col="red",ylim=range1, axes=FALSE, ann=FALSE)
-axis(1, at=1:12)
-axis(2, at=0:36)
+#graf povezave BDP in dolga po letih
+dolg <- DOLG[(1:13), "Dolg"] #vrednost dolga
+
+pdf("slike/dolg2.pdf")
+
+range1 <- range(0, dolg, DODANAVREDNOST)
+plot(DODANAVREDNOST, type="o", col="red",ylim=range1, axes=FALSE, ann=FALSE)
+axis(1, at=1:13, lab=c("2000" ,"2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010",
+                       "2011", "2012"))
+axis(2, at=10000*0:range1[2])
 box()
-lines(prebivalcireg, type="o", pch=22, col="blue", lty=2)
-title(main="Primerjava deleža BDP in prebivalcev po regijah")
-title(xlab="Regije")
-title(ylab="delež")
-legend("topright", c("delež dejavnosti","delež prebivalstva"), cex=0.8,
+lines(dolg, type="o", pch=22, col="blue", lty=2)
+title(main="Primerjava vrednosti BDP in dolga po letih")
+title(xlab="Leta")
+title(ylab="vrednost")
+legend("topleft", c("Vrednost BDP","vrednost dolga"), cex=0.8,
        col=c("red","blue"), lty=1:2)
 
 
+
 dev.off()
-
-
