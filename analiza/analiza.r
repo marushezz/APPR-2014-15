@@ -44,15 +44,20 @@ dev.off()
 
 
 #Stolpični graf primerjava deleža prebivalstva in deleža BDP
-prebivalcireg <-PREBIVALSTVOREGIJE[,"Število.prebivalcev"]
+prebivalcireg <-PREBIVALSTVOREGIJE[,"Število.prebivalcev"] 
 DEJ <- as.integer(as.table(matrix(DODANAVRED[445, c(6:9, 11:18)])))
-DEJ1 <- DEJ[order(DEJ)]
-prebivalcireg1 <- prebivalcireg[c(5 ,8, 10,  7, 12,  1,  2,  6,  3,  9, 11,  4)]
-
-pdf("slike/delez1.pdf")
+# DEJ1 <- DEJ[order(DEJ)]
+# prebivalcireg1 <- prebivalcireg[c(5 ,8, 10,  7, 12,  1,  2,  6,  3,  9, 11,  4)]
+o <- order(DEJ)
+DEJ1 <- DEJ[o]
+prebivalcireg1 <- prebivalcireg[o]
+  
+pdf("slike/delez2.pdf")
 prebdej <- matrix(c(prebivalcireg1, DEJ1), nrow=2, byrow=TRUE)
-barplot(prebdej, xlab= "Regije", ylab="Vrednost", main= "Primerjava deleža BDP in prebivalcev po regijah", 
-        col=c("blue", " green"), width=3, beside=TRUE, names.arg=1:12)
+barplot(prebdej, sub= "Regije", ylab="Vrednost",
+        main= "Primerjava deleža BDP in prebivalcev po regijah", 
+        col=c("blue", " green"), width=3, beside=TRUE,
+        names.arg=PREBIVALSTVOREGIJE[o,"Regije"], las = 2, cex.names = 0.4)
 legend("topleft", legend = c("delež prebivalstva", "delež BDP"), 
        fill = c("blue", "green"))
 dev.off()
